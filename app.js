@@ -41,10 +41,14 @@ app.get("/contact" , function(req,res){
        const matchedTitle = _.lowerCase(post.title);
 
       if(neededTitle===matchedTitle){
-        console.log("Match Found!");
+       res.render("post",{
+         title: post.title,
+         content: post.content
+       });
       }
       });
   });
+
 
   app.post("/compose", function(req,res){
     let post = {
@@ -55,6 +59,8 @@ app.get("/contact" , function(req,res){
     res.redirect("/");
   });
  
+
+
 
 
 
