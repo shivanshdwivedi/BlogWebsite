@@ -35,16 +35,13 @@ app.get("/contact" , function(req,res){
   app.get("/posts/:postName" , function(req,res){
 
       const neededTitle = req.params.postName;
-      const neededMatch = req.body.title;
-      if(neededTitle===neededMatch)
-      {
-        console.log("Match Found");
-      }
-      //  else()
-      //  {
-      //    console.log("Try Again");
-      //  }
 
+      posts.forEach(function(post){
+       const matchedTitle = post.title;
+      if(neededTitle===matchedTitle){
+        console.log("Match Found!");
+      }
+      });
   });
 
   app.post("/compose", function(req,res){
