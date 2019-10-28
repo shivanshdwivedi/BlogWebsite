@@ -32,6 +32,21 @@ app.get("/contact" , function(req,res){
     res.render("compose");
   });
 
+  app.get("/posts/:postName" , function(req,res){
+
+      const neededTitle = req.params.postName;
+      const neededMatch = req.body.title;
+      if(neededTitle===neededMatch)
+      {
+        console.log("Match Found");
+      }
+      //  else()
+      //  {
+      //    console.log("Try Again");
+      //  }
+
+  });
+
   app.post("/compose", function(req,res){
     let post = {
       title: (req.body.names),
