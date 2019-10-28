@@ -35,10 +35,11 @@ app.get("/contact" , function(req,res){
 
   app.get("/posts/:postName" , function(req,res){
 
-      const neededTitle = req.params.postName;
+      const neededTitle = _.lowerCase(req.params.postName);
 
       posts.forEach(function(post){
-       const matchedTitle = post.title;
+       const matchedTitle = _.lowerCase(post.title);
+
       if(neededTitle===matchedTitle){
         console.log("Match Found!");
       }
